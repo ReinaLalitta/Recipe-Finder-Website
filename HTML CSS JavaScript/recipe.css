@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #8B4513; /* Brown background color */
+    color: #333; /* Default text color */
+}
+
+header {
+    background-color: #A52A2A; /* Dark red header background color */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+h2.subheading {
+    color: black; /* Changed text color to black */
+    font-size: 1.5rem;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Capitalize the text */
+}
+
+p.quote {
+    font-style: italic;
+    margin-bottom: 20px;
+    color: pink; /* Pink text color */
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 70%;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: blue; /* Blue text color */
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #B22222; /* Dark red button background color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #800000; /* Maroon hover background color */
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.recipe-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    width: calc(33.33% - 40px);
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-card img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.recipe-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.recipe-card p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #777;
+}
+
+.recipe-card a {
+    display: inline-block;
+    background-color: #B22222; /* Dark red button background color */
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.recipe-card a:hover {
+    background-color: #800000; /* Maroon hover background color */
+}
+
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}

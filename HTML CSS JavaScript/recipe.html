@@ -4,130 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Finder</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #8B4513; /* Brown background color */
-            color: #333; /* Default text color */
-        }
-
-        header {
-            background-color: #A52A2A; /* Dark red header background color */
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-
-        h2.subheading {
-            color: blue; /* Blue text color */
-            font-size: 1.5rem;
-            margin-top: 10px;
-            margin-bottom: 20px;
-        }
-
-        p.quote {
-            font-style: italic;
-            margin-bottom: 20px;
-            color: pink; /* Pink text color */
-        }
-
-        input[type="text"] {
-            padding: 10px;
-            width: 70%;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: blue; /* Blue text color */
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #B22222; /* Dark red button background color */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #800000; /* Maroon hover background color */
-        }
-
-        main {
-            padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-
-        .recipe-card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin: 20px;
-            width: calc(33.33% - 40px);
-            padding: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .recipe-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .recipe-card img {
-            width: 100%;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-
-        .recipe-card h2 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .recipe-card p {
-            font-size: 1rem;
-            margin-bottom: 20px;
-            color: #777;
-        }
-
-        .recipe-card a {
-            display: inline-block;
-            background-color: #B22222; /* Dark red button background color */
-            color: white;
-            padding: 8px 16px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .recipe-card a:hover {
-            background-color: #800000; /* Maroon hover background color */
-        }
-
-        footer {
-            background-color: #222;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-    </style>
+    <link rel="stylesheet" href="recipe.css"> <!-- Link to external CSS -->
 </head>
 <body>
     <header>
         <h1>Recipe Finder</h1>
-        <h2 class="subheading">Recipes</h2> <!-- Subheading for recipes -->
+        <h2 class="subheading">Pasta Carbonara | Caprese Salad | Chicken Stir Fry</h2> <!-- Updated subheading -->
         <p class="quote">"The only real stumbling block is fear of failure. In cooking, you've got to have a what-the-hell attitude." - Julia Child</p>
         <p class="quote">"Cooking is like love. It should be entered into with abandon or not at all." - Harriet Van Horne</p>
         <p class="quote">"Food is symbolic of love when words are inadequate." - Alan D. Wolfelt</p>
@@ -148,61 +30,6 @@
     <footer>
         <p>&copy; 2024 Recipe Finder</p>
     </footer>
-    <script>
-        const searchInput = document.getElementById('searchInput');
-        const searchButton = document.getElementById('searchButton');
-        const recipeResults = document.getElementById('recipeResults');
-
-        // Sample recipe data for demonstration purposes
-        const sampleRecipes = [
-            {
-                title: "Pasta Carbonara",
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAalkc6r4-ZATCHxIZXmz6eQbGLCQ3UCLNug&usqp=CAU",
-                summary: "Delicious pasta dish with eggs, cheese, and bacon.",
-                sourceUrl: "https://www.youtube.com/watch?v=D_2DBLAt57c",
-                ingredients: ["Spaghetti", "Eggs", "Parmesan cheese", "Bacon"]
-            },
-            {
-                title: "Caprese Salad",
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSg75GDUWk1eejJcq39LYyrOSMI_3hKzG-wd0dOHBR_z1FjcxlCsjbjEG3F-waL6LfNPs&usqp=CAU",
-                summary: "Simple Italian salad made with tomatoes, mozzarella, and basil.",
-                sourceUrl: "https://www.youtube.com/watch?v=3EtaYRm23OA",
-                ingredients: ["Tomatoes", "Mozzarella cheese", "Fresh basil", "Balsamic vinegar"]
-            },
-            {
-                title: "Chicken Stir Fry",
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQs8zlUzCPiU5YbX5uhBKtTOLH9f55FCfPNg&usqp=CAU",
-                summary: "Quick and easy chicken stir fry with vegetables.",
-                sourceUrl: "https://www.youtube.com/watch?v=5dybdeTylz0",
-                ingredients: ["Chicken breast", "Bell peppers", "Broccoli", "Soy sauce"]
-            }
-        ];
-
-        searchButton.addEventListener('click', searchRecipes);
-
-        function searchRecipes() {
-            const searchTerm = searchInput.value.toLowerCase();
-            const filteredRecipes = sampleRecipes.filter(recipe => {
-                return recipe.title.toLowerCase().includes(searchTerm) || recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchTerm));
-            });
-            displayRecipes(filteredRecipes);
-        }
-
-        function displayRecipes(recipes) {
-            recipeResults.innerHTML = '';
-            recipes.forEach(recipe => {
-                const recipeCard = document.createElement('div');
-                recipeCard.classList.add('recipe-card');
-                recipeCard.innerHTML = `
-                    <h2>${recipe.title}</h2>
-                    <img src="${recipe.image}" alt="${recipe.title}">
-                    <p>${recipe.summary}</p>
-                    <p><strong>Ingredients:</strong> ${recipe.ingredients.join(', ')}</p>
-                    <a href="${recipe.sourceUrl}" target="_blank">View Recipe</a>
-                `;
-                recipeResults.appendChild(recipeCard);
-            });
-        }
-    </script>
+    <script src="recipe.js"></script> <!-- Link to external JavaScript -->
 </body>
 </html>
